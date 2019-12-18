@@ -61,9 +61,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="nameuser" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>                                
+                                    <input id="nameuser" type="text" class="form-control @error('nameuser') is-invalid @enderror" name="nameuser" value="{{ old('nameuser') }}" required autocomplete="nameuser" autofocus>
+                                </div>
+                                @error('nameuser')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Register') }}
                                 </button>
                             </div>

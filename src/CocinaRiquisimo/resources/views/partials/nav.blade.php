@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark color7 shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark color7 flex-column flex-md-row bd-navbar fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -28,14 +28,19 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Acceder
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <hr>
+                        @if (Route::has('register'))                        
+                            <a class="nav-link text-center" href="{{ route('register') }}">{{ __('Register') }}</a>                
+                        @endif
+                    </div>
+                </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -59,6 +64,7 @@
         </div>
     </div>
 </nav>
+<br><br>
 <!-- acceder a la url request()->url())-->
 <!-- acceder al nombre en request()->path())-->
 <!-- boolean que verifica si estamos en determinada ruta request()->routeIs())-->
