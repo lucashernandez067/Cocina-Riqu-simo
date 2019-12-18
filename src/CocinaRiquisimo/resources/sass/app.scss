@@ -6,3 +6,39 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//Material Design Iconic Font
+@import url('https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css');
+
+//size
+.h-screen{
+    height: 90vh;
+}
+
+//colors
+.color1{
+    background-color: rgba(110, 191, 161, 1) !important;
+}
+.color2{
+    background-color: rgba(242, 235, 215, 1) !important;
+}
+.color3{
+    background-color: rgba(242, 159, 4, 1) !important;
+}
+.color4{
+    background-color: rgba(191, 91, 3, 1) !important;
+}
+.color5{
+    background-color: rgba(216, 60, 4, 1) !important;
+}
+.color6{
+    background-color: rgb(108, 186, 204) !important;
+}
+.color7{
+    background-color: #104C59 !important;
+}
+
+//gradients
+.bg-gradientblue{
+    background-color: linear-gradient(to left, rgb(108, 186, 204), rgba(110, 191, 161, 1)) !important; 
+}
