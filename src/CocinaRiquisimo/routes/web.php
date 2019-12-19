@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/profile', 'UserController@profile')->name('profile');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/contacto', 'contact')->name('contact');
 Route::view('/nosotros', 'about')->name('about');

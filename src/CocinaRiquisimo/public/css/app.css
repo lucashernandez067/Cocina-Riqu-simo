@@ -11392,3 +11392,33 @@ a.text-dark:focus {
   background-color: linear-gradient(to left, #6cbacc, #6ebfa1) !important;
 }
 
+@media (min-width: 768px) {
+  .bd-navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1071;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .bd-navbar {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .bd-navbar {
+    min-height: 4rem;
+    background-color: #563d7c;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-md-row {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: row !important;
+  }
+}
+

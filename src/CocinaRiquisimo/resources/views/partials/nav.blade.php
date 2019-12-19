@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark color7 flex-column flex-md-row bd-navbar fixed-top shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark color7 flex-column flex-md-row bd-navbar shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -9,10 +9,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ setActive('Inicio') }}">
-                    <a class="nav-link" href="/Inicio">Inico</a>
-                </li>
+            <ul class="navbar-nav mr-auto">                
                 <li class="nav-item {{ setActive('about') }}">
                     <a class="nav-link" href="/nosotros">Sobre Nosotros</a>
                 </li>
@@ -20,7 +17,7 @@
                     <a class="nav-link" href="/contacto">Cotáctanos</a>
                 </li>
                 <li class="nav-item  {{ setActive('recipes')}}">
-                    <a class="nav-link" href="/recetas ">Login</a>
+                    <a class="nav-link" href="/recetas ">Recetas</a>
                 </li>
             </ul>
 
@@ -44,20 +41,29 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            Mi cuenta
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
+                        
+                        <div class="dropdown-menu dropdown-menu-right p-4 px-5 color6" aria-labelledby="navbarDropdown">
+                            <center style="margin-bottom: 12px;">
+                            <b class="text-white">{{ Auth::user()->name }} <span class="caret"></span></b>
+                            <a href=""><img src="/img/profile/{{ Auth::user()->photo }}" style="border-radius: 100px;width: 150px;height: 150px; border: black 2px solid; margin-top: 15px; margin-bottom: 20px; background-color: white;" class="mCS_img_loaded"></a>
+                            <br>
+                            <hr class="bg-white">                                                        
+                            <a href="{{ url('/profile') }}" title="Perfil" class="btn color2">
+                                <i class="zmdi zmdi-account-o"></i>
+                            </a>
+                            <a href="#!" title="{{ __('Logout') }}" class="btn color5" 
+                                href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="zmdi zmdi-power"></i>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        </div>
+                            </center>
+                        </div>                    
                     </li>
                 @endguest
             </ul>

@@ -65,15 +65,10 @@
                             <label for="nameuser" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
 
                             <div class="col-md-6">
-                                <div class="input-group-prepend">
+                                <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon1">@</span>                                
-                                    <input id="nameuser" type="text" class="form-control @error('nameuser') is-invalid @enderror" name="nameuser" value="{{ old('nameuser') }}" required autocomplete="nameuser" autofocus>
-                                </div>
-                                @error('nameuser')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    <input id="nameuser" type="text" class="form-control @error('nameuser') is-invalid @enderror" name="nameuser" placeholder="{{ $errors->first('nameuser') }}" required autocomplete="nameuser" autofocus>                                   
+                                </div>               
                             </div>
                         </div>
 
