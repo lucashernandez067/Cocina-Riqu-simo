@@ -8,7 +8,7 @@
         <p>@<span>{{ $user->nameuser }}</span></p>
 
         <button type="button" class="btn btn-primary my-2 ml-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter">
-            Actualizar
+            {{ __('Update') }}
         </button>        
     </center>
     <div class="modal fade" id="exampleModalCenter" style="font-family: 'Lexend Deca', sans-serif;" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -21,14 +21,23 @@
                     </button>
                 </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form enctype="multipart/form-data" method="POST" action="/profile">
                     @csrf
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">Foto de Perfil</label>
+                        <div class="col-md-6">
+                            <div class="custom-file">
+                                <input type="file" name="photo" class="custom-file-input" id="inputGroupFile02">
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Subir foto .jpg</label>
+                            </div>                        
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -44,7 +53,7 @@
                         <div class="col-md-6">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon1">@</span>                                
-                                <input id="nameuser" type="text" class="form-control @error('nameuser') is-invalid @enderror" name="nameuser" placeholder="{{ $errors->first('nameuser') }}" required autocomplete="nameuser" autofocus>                                   
+                                <input id="nameuser" type="text" class="form-control @error('nameuser') is-invalid @enderror" name="nameuser" value="{{ Auth::user()->nameuser }}" placeholder="{{ $errors->first('nameuser') }}" required autocomplete="nameuser" autofocus>                                   
                             </div>               
                         </div>
                     </div>
