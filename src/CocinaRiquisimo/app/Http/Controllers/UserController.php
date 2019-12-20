@@ -17,13 +17,14 @@ class UserController extends Controller
         //actualización de datos
         if($request->hasFile('photo')){
             $photo = $request->file('photo');
-            $filename = time() . "_" . $photo->getClientOriginalExtension();
+            $filename = time() . "." . $photo->getClientOriginalExtension();
             Image::make($photo)->resize(300, 300)->save(public_path('img/profile/'. $filename));
 
             $user = Auth::user();
             $user->photo = $filename;
             $user->save();
 
+            return redirect()->route('profile');
         }
 
     }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark color7 flex-column flex-md-row bd-navbar shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="img/icons/secondary.png" alt="Icono" style="width: 20px; height: 20px; margin-left: 5px; margin-right: 5px;">{{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -16,8 +16,8 @@
                 <li class="nav-item  {{ setActive('contact') }}">
                     <a class="nav-link" href="/contacto">Cotáctanos</a>
                 </li>
-                <li class="nav-item  {{ setActive('recipes')}}">
-                    <a class="nav-link" href="/recetas ">Recetas</a>
+                <li class="nav-item  {{ setActive('recipes.index')}}">
+                    <a class="nav-link" href="{{ route('recipes.index') }}">Recetas</a>
                 </li>
             </ul>
 
@@ -49,9 +49,13 @@
                             <b class="text-white">{{ Auth::user()->name }} <span class="caret"></span></b>
                             <a href=""><img src="/img/profile/{{ Auth::user()->photo }}" style="border-radius: 100px;width: 150px;height: 150px; border: black 2px solid; margin-top: 15px; margin-bottom: 20px; background-color: white;" class="mCS_img_loaded"></a>
                             <br>
-                            <hr class="bg-white">                                                        
-                            <a href="{{ url('/profile') }}" title="Perfil" class="btn color2">
-                                <i class="zmdi zmdi-account-o"></i>
+                            <hr class="bg-white">                                                                                    
+                            <a href="{{ route('recipes.yours') }}" title="Tus Recetas" class="btn color2">
+                                <i class="zmdi zmdi-cutlery"></i>
+                            </a>
+                            
+                            <a href="{{ url('/profile') }}" title="Perfil" class="btn color7">
+                                <i class="zmdi zmdi-account-circle"></i>
                             </a>
                             <a href="#!" title="{{ __('Logout') }}" class="btn color5" 
                                 href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -70,14 +74,14 @@
         </div>
     </div>
 </nav>
-<br><br>
+<br>
 <!-- acceder a la url request()->url())-->
 <!-- acceder al nombre en request()->path())-->
 <!-- boolean que verifica si estamos en determinada ruta request()->routeIs())-->
-        <!-- forma PRO 
-            se crea una función en la carpeta app "Helpers"
-            y luego se declara que será utilizado desde el archivo composer.json
-            en "autoload" se crea un arreglo llamado "files" y adentro un arreglo con 
-            la ruta (["app/helpers.php"]), lugo hay que compilar composer nuevamente.
-        -->
+<!-- forma PRO 
+    se crea una función en la carpeta app "Helpers"
+    y luego se declara que será utilizado desde el archivo composer.json
+    en "autoload" se crea un arreglo llamado "files" y adentro un arreglo con 
+    la ruta (["app/helpers.php"]), lugo hay que compilar composer nuevamente.
+-->
             

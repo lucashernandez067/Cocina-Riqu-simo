@@ -8,7 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/hover-min.css">
+    <link rel="shortcut icon" href="img/icons/secondary.png">
     <script src="/js/app.js" defer></script>
+    <script src="/js/main.js" defer></script>
 </head>
 <body>
     <!-- el "/" se puede reemplazar con un "." -->
@@ -17,7 +20,7 @@
             @include('partials.nav')
         </header>
         <div class="d-flex flex-column h-screen justify-content-between">
-            <main class="py-4">
+            <main class="py-2">
                 <div class="container">
                     @yield('content')
                 </div>        

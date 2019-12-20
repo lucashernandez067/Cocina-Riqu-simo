@@ -22,6 +22,14 @@ Route::get('/profile', 'UserController@profile')->name('profile');
 Route::post('/profile', 'UserController@update');
 
 Route::get('/recipes', 'RecipesController@index')->name('recipes.index');
+Route::get('/recipes/yours', 'RecipesController@yours')->name('recipes.yours');
+Route::post('/recipes', 'RecipesController@store')->name('recipes.store');
+Route::get('/recipes/create', 'RecipesController@create')->name('recipes.create');
+Route::get('/recipes/{id}', 'RecipesController@show')->name('recipes.show');
+Route::get('/recipes/edit/{id}', 'RecipesController@edit')->name('recipes.edit');
+Route::put('/recipes/update/{id}', 'RecipesController@update')->name('recipes.update');
+Route::get('/recipes/viewDestroy/{id}', 'RecipesController@viewDestroy')->name('recipes.viewDestroy');
+Route::delete('/recipes/delete/{id}', 'RecipesController@destroy')->name('recipes.destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/contacto', 'contact')->name('contact');

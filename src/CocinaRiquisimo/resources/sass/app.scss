@@ -10,6 +10,7 @@
 //Material Design Iconic Font
 @import url('https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css');
 
+
 //size
 .h-screen{
     height: 90vh;
@@ -42,6 +43,52 @@
 .bg-gradientblue{
     background-color: linear-gradient(to left, rgb(108, 186, 204), rgba(110, 191, 161, 1)) !important; 
 }
+
+//btn's
+.btn-6{
+    background-color: rgb(108, 186, 204);  
+    color: #104C59;
+}
+.btn-6:hover{
+    background-color: #104C59;
+    color: rgb(108, 186, 204);
+}
+
+//Recipes
+.recipe-info ul li {
+    color: #666;
+    display: inline-block;
+    font-size: 13px;
+    margin-right: 28px;
+    position: relative;
+}
+.recipe-info ul li::after {
+    background-color: #b6b6b6;
+    content: "";
+    font-size: 8px;
+    height: 13px;
+    position: absolute;
+    right: -17px;
+    top: 3px;
+    width: 2px;
+}
+.recipe-info ul li:last-child::after {
+    content: none;
+}
+.recipe-info ul li:last-child {
+    margin-right: 0px;
+}
+.recipe-info ul li a {
+    color: #666;
+    font-size: 13px;
+}
+.recipe-info ul li a:hover {
+    color: #383838;
+}
+.recipe-img{
+    filter: drop-shadow(1px 1px 3px #444);
+}
+
 
 @media (min-width: 768px){
     .bd-navbar {
